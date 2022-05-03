@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Item {
 
 	// I am create an Item object, I copied the hash code stuff from the bottom of Customer
-	// Errors are being thrown due to price being a double for some reason
+	// Errors are being thrown due to price being a double for some reason.
 	
 	private Long id;
 	private String itemName;
