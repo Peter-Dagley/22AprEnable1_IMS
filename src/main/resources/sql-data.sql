@@ -13,12 +13,12 @@ INSERT INTO `ims`.`orders` (`customer_id`) VALUES (2);
 INSERT INTO `ims`.`orders` (`customer_id`) VALUES (3);
 INSERT INTO `ims`.`orders` (`customer_id`) VALUES (4);
 
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (1, 1);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (1, 2);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (2, 3);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (2, 3);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (3, 4);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (3, 1);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (4, 2);
-INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (4, 2);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (1, 1);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (1, 2);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (2, 3);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (2, 3);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (3, 4);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (3, 1);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (4, 2);
+-- INSERT INTO `ims`.`orders_items` (`order_id`, `item_id`) VALUES (4, 2);
 
