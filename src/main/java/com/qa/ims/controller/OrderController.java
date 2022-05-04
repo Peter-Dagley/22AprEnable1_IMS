@@ -45,10 +45,8 @@ public class OrderController implements CrudController<Order> {
 	public Order create() {
 		LOGGER.info("Please enter a customer ID, item id and item quantity");
 		Long customer_id = utils.getLong();
-		Long item_id = utils.getLong();
-		Long quantity = utils.getLong();
-				// probably have "add items to order" here
-		Order order = orderDAO.create(new Order(customer_id, item_id, quantity));
+	// probably have "add items to order" here
+		Order order = orderDAO.create(new Order(customer_id));
 		LOGGER.info("Order created");
 		return order;
 	}
@@ -62,9 +60,7 @@ public class OrderController implements CrudController<Order> {
 		Long order_id = utils.getLong();
 		LOGGER.info("Please enter a customer ID, item id and item quantity");
 		Long customer_id = utils.getLong();
-		Long item_id = utils.getLong();
-		Long quantity = utils.getLong();
-		Order order = orderDAO.update(new Order(order_id, customer_id, item_id, quantity));
+		Order order = orderDAO.update(new Order(order_id, customer_id));
 		LOGGER.info("Order Updated");
 		return order;
 	}

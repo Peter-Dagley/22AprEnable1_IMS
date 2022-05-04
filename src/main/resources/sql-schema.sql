@@ -25,13 +25,14 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders` (
     FOREIGN KEY (`customer_id`) REFERENCES customers(`id`)
   );
   
---   CREATE TABLE IF NOT EXISTS `ims`.`orders_items` (
---     `id` INT(11) NOT NULL AUTO_INCREMENT,
---     `order_id` INT(11) DEFAULT NULL,
---     `item_id` INT(11) DEFAULT NULL,
---     PRIMARY KEY (`id`),
---     FOREIGN KEY (`order_id`) REFERENCES orders(`order_id`)
---   );
+CREATE TABLE IF NOT EXISTS `ims`.`orders_items` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `order_id` INT(11) DEFAULT NULL,
+    `item_id` INT(11) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`order_id`) REFERENCES orders(`order_id`),
+	FOREIGN KEY (`item_id`) REFERENCES items(`id`)
+  );
 --   
 -- DROP VIEW IF EXISTS customer_orders;
 

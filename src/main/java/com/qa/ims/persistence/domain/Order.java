@@ -6,21 +6,14 @@ public class Order {
 
 	private Long order_id;
 	private Long customer_id;
-	private Long item_id;
-	private Long quantity;
 	
-	
-	public Order(Long customer_id, Long item_id, Long quantity) {
+	public Order(Long customer_id) {
 		this.setCustomer_id(customer_id);
-		this.setItem_id(item_id);
-		this.setQuantity(quantity); 
 	}
 	
-	public Order(Long order_id, Long customer_id, Long item_id, Long quantity) {
+	public Order(Long order_id, Long customer_id) {
 		this.setOrder_id(order_id); 
 		this.setCustomer_id(customer_id);
-		this.setItem_id(item_id);
-		this.setQuantity(quantity); 
 	}
 
 	public Long getOrder_id() {
@@ -39,31 +32,14 @@ public class Order {
 		this.customer_id = customer_id;
 	}
 
-	public Long getItem_id() {
-		return item_id;
-	}
-
-	public void setItem_id(Long item_id) {
-		this.item_id = item_id;
-	}
-
-	public Long getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Long quantity) {
-		this.quantity = quantity;
-	}
-
 	@Override
 	public String toString() {
-		return "Order ID: " + order_id + "\r\nCustomer ID: " + customer_id + "\r\nItem ID: " + item_id + "\r\nQuantity: "
-				+ quantity + "]";
+		return "Order [order_id=" + order_id + ", customer_id=" + customer_id + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(customer_id, item_id, order_id, quantity);
+		return Objects.hash(customer_id, order_id);
 	}
 
 	@Override
@@ -75,10 +51,8 @@ public class Order {
 		if (getClass() != obj.getClass())
 			return false;
 		Order other = (Order) obj;
-		return Objects.equals(customer_id, other.customer_id) && Objects.equals(item_id, other.item_id)
-				&& Objects.equals(order_id, other.order_id) && Objects.equals(quantity, other.quantity);
+		return Objects.equals(customer_id, other.customer_id) && Objects.equals(order_id, other.order_id);
 	}
-	
 
 	
 }
