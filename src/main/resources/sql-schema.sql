@@ -18,4 +18,12 @@ CREATE TABLE IF NOT EXISTS `ims`.`items` (
     PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `ims`.`orders` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `order_id` INT(11) DEFAULT NULL,
+    `customer_id` INT(11) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`customer_id`) REFERENCES customers(`id`)
+  );
+
 
