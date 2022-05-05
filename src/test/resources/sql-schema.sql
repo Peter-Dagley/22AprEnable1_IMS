@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 -- DROP TABLE IF EXISTS `items`;
 
--- CREATE TABLE IF NOT EXISTS `ims`.`items` (
+-- CREATE TABLE IF NOT EXISTS `items` (
 --     `id` INT(11) NOT NULL AUTO_INCREMENT,
 --     `item_name` VARCHAR(40) DEFAULT NULL,
 --     `price` DOUBLE(11, 2) DEFAULT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 -- DROP TABLE IF EXISTS `orders`;
 
--- CREATE TABLE IF NOT EXISTS `ims`.`orders` (
+-- CREATE TABLE IF NOT EXISTS `orders` (
 --     `order_id` INT(11) NOT NULL AUTO_INCREMENT,
 --     `customer_id` INT(11) DEFAULT NULL,
 --     PRIMARY KEY (`order_id`),

@@ -11,14 +11,14 @@ public class CustomerTest {
 		EqualsVerifier.simple().forClass(Customer.class).verify();
 	}
 	
-	@Test
-	public void testItemEquals() {
-		EqualsVerifier.simple().forClass(Item.class).verify();
-	}
-	
-	@Test
-	public void testOrderEquals() {
-		EqualsVerifier.simple().forClass(Order.class).verify();
-	}
+//	@Test
+//	public void testItemEquals() {
+//		EqualsVerifier.simple().forClass(Item.class).verify();
+//	}
+//	
+//	@Test
+//	public void testOrderEquals() {
+//		EqualsVerifier.simple().forClass(Order.class).verify();
+//	}
 
 }
