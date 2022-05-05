@@ -21,8 +21,12 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public Order modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long order_id = resultSet.getLong("order_id");
-		Long customer_id = resultSet.getLong("customer_id");
-		return new Order(order_id, customer_id);
+		Long id = resultSet.getLong("customer_id");
+		Long item_id = resultSet.getLong("item_id");
+		String item_name = resultSet.getString("item_name");
+		double price = resultSet.getDouble("price");
+		String surname = resultSet.getString("surname");
+		return new Order(order_id, item_id, item_name, price, id, surname);
 	}
 
 	/**
@@ -34,7 +38,11 @@ public class OrderDAO implements Dao<Order> {
 	public List<Order> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders");) {
+				ResultSet resultSet = statement.executeQuery("SELECT customer_orders.*, orders.order_id, items.item_name, items.price, customers.id AS customer_id, customers.surname FROM customer_orders\r\n"
+						+ "JOIN orders ON customer_orders.order_id=orders.order_id\r\n"
+						+ "JOIN items ON customer_orders.order_id=items.id\r\n"
+						+ "JOIN customers ON orders.customer_id=customers.id\r\n"
+						+ "ORDER BY customer_orders.order_id ASC;");) {
 			List<Order> orders = new ArrayList<>();
 			while (resultSet.next()) {
 				orders.add(modelFromResultSet(resultSet));
@@ -70,7 +78,7 @@ public class OrderDAO implements Dao<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("INSERT INTO orders(customer_id) VALUES (?)");) {
-			statement.setLong(1, order.getCustomer_id());
+			statement.setLong(1, order.getId());
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -79,6 +87,29 @@ public class OrderDAO implements Dao<Order> {
 		}
 		return null;
 	}
+	
+	//
+	//
+	//
+	//CAN WE ADD AN ITEM PLEASE
+	public Order addItem(Order order) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("INSERT INTO customer_orders(order_id, item_id) VALUES (?, ?)");) {
+			statement.setLong(1, order.getOrder_id());
+			statement.setLong(2, order.getItem_id());
+			statement.executeUpdate();
+			return readLatest();
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+	}
+	//
+	//
+	//
+	//
 
 	@Override
 	public Order read(Long order_id) {
@@ -99,16 +130,17 @@ public class OrderDAO implements Dao<Order> {
 	/**
 	 * Updates an order in the database
 	 * 
-	 * @param order - takes in an order object, the id field will be used to
-	 *                 update that item in the database
+	 * @param order - takes in an order object, the id field will be used to update
+	 *              that item in the database
 	 * @return
 	 */
 	@Override
 	public Order update(Order order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE orders SET customer_id = ? WHERE id = ?");) {
-			statement.setLong(1, order.getCustomer_id());
+						.prepareStatement("UPDATE orders SET customer_id = ? WHERE order_id = ?");) {
+			statement.setLong(1, order.getId());
+			// changed getCustomer_id to getId to accout for changes (care if reverting)
 			statement.setLong(2, order.getOrder_id());
 			statement.executeUpdate();
 			return read(order.getOrder_id());
@@ -127,7 +159,8 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public int delete(long order_id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE order_id = ?");) {
+				PreparedStatement statement = connection
+						.prepareStatement("DELETE FROM orders WHERE order_id = ?");) {
 			statement.setLong(1, order_id);
 			return statement.executeUpdate();
 		} catch (Exception e) {

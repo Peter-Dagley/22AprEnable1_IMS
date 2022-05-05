@@ -38,19 +38,38 @@ public class OrderController implements CrudController<Order> {
 		return orders;
 	}
 
+	// Reads a single thing
+	public Order read() {
+		LOGGER.info("Please enter the id of the order");
+		Long order_id = utils.getLong();
+		Order order = orderDAO.read(order_id);
+		LOGGER.info(order);
+		return order;	
+	}
+	
 	/**
 	 * Creates an order by taking in user input
 	 */
 	@Override
 	public Order create() {
 		LOGGER.info("Please enter a customer ID");
-		Long customer_id = utils.getLong();
-				// probably have "add items to order" here
-		Order order = orderDAO.create(new Order(customer_id));
+		Long id = utils.getLong();	
+		Order order = orderDAO.create(new Order(id));
 		LOGGER.info("Order created");
 		return order;
 	}
 
+	//can we add an item please :)
+	public Order addItem() {
+		LOGGER.info("Please enter the ID of the order you would like to add to");
+		Long order_id = utils.getLong();
+		LOGGER.info("Please enter the ID of the item you would like to add");
+		Long item_id = utils.getLong();
+		Order order = orderDAO.addItem(new Order(order_id, item_id));
+		return order;
+	}
+	
+	
 	/**
 	 * Updates an existing order by taking in user input
 	 */
@@ -58,7 +77,7 @@ public class OrderController implements CrudController<Order> {
 	public Order update() {
 		LOGGER.info("Please enter the id of the order you would like to update");
 		Long order_id = utils.getLong();
-		LOGGER.info("Please enter a customer id");
+		LOGGER.info("Please enter a customer ID");
 		Long customer_id = utils.getLong();
 		Order order = orderDAO.update(new Order(order_id, customer_id));
 		LOGGER.info("Order Updated");
