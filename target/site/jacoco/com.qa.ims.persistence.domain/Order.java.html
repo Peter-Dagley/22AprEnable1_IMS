@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ims</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.persistence.domain</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package com.qa.ims.persistence.domain;
+
+import java.util.Objects;
+
+public class Order {
+
+	private Long order_id;
+	private Long item_id;
+	private String item_name;
+	private double price;
+	private Long id;
+	private String surname;
+
+<span class="nc" id="L14">	public Order(Long order_id, Long id) {</span>
+<span class="nc" id="L15">		this.setOrder_id(order_id);</span>
+<span class="nc" id="L16">		this.setId(id);</span>
+<span class="nc" id="L17">	}</span>
+
+<span class="nc" id="L19">	public Order(Long id) {</span>
+<span class="nc" id="L20">		this.setId(id);</span>
+<span class="nc" id="L21">	}</span>
+
+<span class="nc" id="L23">	public Order(Long order_id, Long item_id, String item_name, double price, Long id, String surname) {</span>
+<span class="nc" id="L24">		this.setOrder_id(order_id);</span>
+<span class="nc" id="L25">		this.setItem_id(item_id);</span>
+<span class="nc" id="L26">		this.setItem_name(item_name);</span>
+<span class="nc" id="L27">		this.setPrice(price);</span>
+<span class="nc" id="L28">		this.setId(id);</span>
+<span class="nc" id="L29">		this.setSurname(surname);</span>
+<span class="nc" id="L30">	}</span>
+
+<span class="nc" id="L32">	public Order(Long id, Long order_id, Long item_id) {</span>
+<span class="nc" id="L33">		this.setId(id);</span>
+<span class="nc" id="L34">		this.setOrder_id(order_id);</span>
+<span class="nc" id="L35">		this.setItem_id(item_id);</span>
+<span class="nc" id="L36">	}</span>
+
+	public Long getOrder_id() {
+<span class="nc" id="L39">		return order_id;</span>
+	}
+
+	public void setOrder_id(Long order_id) {
+<span class="nc" id="L43">		this.order_id = order_id;</span>
+<span class="nc" id="L44">	}</span>
+
+	public Long getItem_id() {
+<span class="nc" id="L47">		return item_id;</span>
+	}
+
+	public void setItem_id(Long item_id) {
+<span class="nc" id="L51">		this.item_id = item_id;</span>
+<span class="nc" id="L52">	}</span>
+
+	public String getItem_name() {
+<span class="nc" id="L55">		return item_name;</span>
+	}
+
+	public void setItem_name(String item_name) {
+<span class="nc" id="L59">		this.item_name = item_name;</span>
+<span class="nc" id="L60">	}</span>
+
+	public double getPrice() {
+<span class="nc" id="L63">		return price;</span>
+	}
+
+	public void setPrice(double price) {
+<span class="nc" id="L67">		this.price = price;</span>
+<span class="nc" id="L68">	}</span>
+
+	public Long getId() {
+<span class="nc" id="L71">		return id;</span>
+	}
+
+	public void setId(Long id) {
+<span class="nc" id="L75">		this.id = id;</span>
+<span class="nc" id="L76">	}</span>
+
+	public String getSurname() {
+<span class="nc" id="L79">		return surname;</span>
+	}
+
+	public void setSurname(String surname) {
+<span class="nc" id="L83">		this.surname = surname;</span>
+<span class="nc" id="L84">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L88">		return Objects.hash(id, item_id, item_name, order_id, price, surname);</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (this == obj)</span>
+<span class="nc" id="L94">			return true;</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L96">			return false;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L98">			return false;</span>
+<span class="nc" id="L99">		Order other = (Order) obj;</span>
+<span class="nc bnc" id="L100" title="All 4 branches missed.">		return Objects.equals(id, other.id) &amp;&amp; Objects.equals(item_id, other.item_id)</span>
+<span class="nc bnc" id="L101" title="All 4 branches missed.">				&amp;&amp; Objects.equals(item_name, other.item_name) &amp;&amp; Objects.equals(order_id, other.order_id)</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">				&amp;&amp; Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">				&amp;&amp; Objects.equals(surname, other.surname);</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="nc" id="L108">		return &quot;Order [order_id=&quot; + order_id + &quot;, item_id=&quot; + item_id + &quot;, item_name=&quot; + item_name + &quot;, price=&quot; + price</span>
+				+ &quot;, id=&quot; + id + &quot;, surname=&quot; + surname + &quot;]&quot;;
+	}
+	
+
+//	private Long order_id;
+//	private Long customer_id;
+
+//	public Order(Long customer_id) {
+//		this.setCustomer_id(customer_id);
+//	}
+//	
+//	public Order(Long order_id, Long customer_id) {
+//		this.setOrder_id(order_id); 
+//		this.setCustomer_id(customer_id);
+//	}
+//
+//	public Long getOrder_id() {
+//		return order_id;
+//	}
+//
+//	public void setOrder_id(Long order_id) {
+//		this.order_id = order_id;
+//	}
+//
+//	public Long getCustomer_id() {
+//		return customer_id;
+//	}
+//
+//	public void setCustomer_id(Long customer_id) {
+//		this.customer_id = customer_id;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return &quot;Order [order_id=&quot; + order_id + &quot;, customer_id=&quot; + customer_id + &quot;]&quot;;
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(customer_id, order_id);
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Order other = (Order) obj;
+//		return Objects.equals(customer_id, other.customer_id) &amp;&amp; Objects.equals(order_id, other.order_id);
+//	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
