@@ -1,68 +1,41 @@
-Coverage: 34%
-# Project Title
+# 22AprEnable1, Inventory Management System Project
 
-One Paragraph of project description goes here
+This is an Inventory Management System with the functions: Create, Read, Update and Delete, for 'Customers', 'Items' and 'Orders'
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To download this application, make an empty folder (for example "IMS")
+Then, 'git bash' in the folder, 'git init' to make it a repository, and 'git clone (+ the SSH Key of this online repository)' to copy the project to your local system 
+To run the app, navigate into the folder you made (e.g. "IMS") and run a command prompt in the \target\ subfolder
+IN the command prompt, use the command 'java -jar "name of the jar-with-dependencies.jar where these quotation marks are"'
+This should run the application through a command prompt
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Git Bash is needed to download this repository
+To download Git Bash for your system, follow this link: https://git-scm.com/downloads
 
-```
-Give examples
-```
+For development and testing purposes, please install Eclipse for Java developers by following this link: https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+To install and edit this project, move the folder you made earlier (e.g. "IMS") into your \eclipse-workspace\
+In Eclipse, navigate to File/Open Projects from File System and select your folder (e.g. "IMS")
+This will create a development environment for this project
 
-Say what the step will be
+To run the project, navigate to the Runner object in src/main/java/com.qa.ims
+Right-click the Runner, and 'Run As' as 'Java Application'
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+This will open the application in the console
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
-
-### Unit Tests 
-
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+To run automated tests for this application, right-click the src/test/java folder and 'Run As' a 'JUnit Test'
+These tests test the CRUD functionality of the application by testing the methods within CustomerController.java, ItemController.java, OrderController.java, CustomerDAO.java, ItemDAO.java and OrderDAO.java 
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+To ensure deployment on your local machine, make sure your environment is runnng the same Java Verison that is indicated in the pom.xml file
 
 ## Built With
 
@@ -84,6 +57,4 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Thanks to Richard Mansworth and Cameron Guthrie for answering my endless questions
