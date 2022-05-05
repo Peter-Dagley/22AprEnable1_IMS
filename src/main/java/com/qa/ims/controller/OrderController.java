@@ -54,12 +54,12 @@ public class OrderController implements CrudController<Order> {
 	public Order create() {
 		LOGGER.info("Please enter a customer ID");
 		Long id = utils.getLong();
-		Order order = orderDAO.create(new Order(id));
+		LOGGER.info("Please enter the order ID");
+		Long order_id = utils.getLong();
+		LOGGER.info("Please add an item to the order");
+		Long item_id = utils.getLong();
 		
-		// probably have "add items to order" here
-
-//		LOGGER.info("Please add items to the order");
-		
+		Order order = orderDAO.create(new Order(id, order_id, item_id));
 		LOGGER.info("Order created");
 		return order;
 	}

@@ -29,6 +29,12 @@ public class Order {
 		this.setSurname(surname);
 	}
 
+	public Order(Long id, Long order_id, Long item_id) {
+		this.setId(id);
+		this.setOrder_id(order_id);
+		this.setItem_id(item_id);
+	}
+
 	public Long getOrder_id() {
 		return order_id;
 	}
