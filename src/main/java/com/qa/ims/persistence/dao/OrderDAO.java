@@ -22,11 +22,11 @@ public class OrderDAO implements Dao<Order> {
 	public Order modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long order_id = resultSet.getLong("order_id");
 		Long id = resultSet.getLong("customer_id");
-//		Long item_id = resultSet.getLong("item_id");
-//		String item_name = resultSet.getString("item_name");
-//		double price = resultSet.getDouble("price");
-//		String surname = resultSet.getString("surname");
-		return new Order(order_id, id);
+		Long item_id = resultSet.getLong("item_id");
+		String item_name = resultSet.getString("item_name");
+		double price = resultSet.getDouble("price");
+		String surname = resultSet.getString("surname");
+		return new Order(order_id, item_id, item_name, price, id, surname);
 	}
 
 	/**
@@ -38,7 +38,11 @@ public class OrderDAO implements Dao<Order> {
 	public List<Order> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders");) {
+				ResultSet resultSet = statement.executeQuery("SELECT customer_orders.*, orders.order_id, items.item_name, items.price, customers.id AS customer_id, customers.surname FROM customer_orders\r\n"
+						+ "JOIN orders ON customer_orders.order_id=orders.order_id\r\n"
+						+ "JOIN items ON customer_orders.order_id=items.id\r\n"
+						+ "JOIN customers ON orders.customer_id=customers.id\r\n"
+						+ "ORDER BY customer_orders.order_id ASC;");) {
 			List<Order> orders = new ArrayList<>();
 			while (resultSet.next()) {
 				orders.add(modelFromResultSet(resultSet));
@@ -84,6 +88,9 @@ public class OrderDAO implements Dao<Order> {
 		return null;
 	}
 	
+	//
+	//
+	//
 	//CAN WE ADD AN ITEM PLEASE
 	public Order addItem(Order order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
@@ -99,7 +106,10 @@ public class OrderDAO implements Dao<Order> {
 		}
 		return null;
 	}
-	
+	//
+	//
+	//
+	//
 
 	@Override
 	public Order read(Long order_id) {
