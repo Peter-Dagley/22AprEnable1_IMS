@@ -89,6 +89,8 @@ public class IMS {
 		case CREATE:
 			crudController.create();
 			break;
+		case ADDITEM:
+			orders.addItem();
 		case READALL:
 			crudController.readAll();
 			break;

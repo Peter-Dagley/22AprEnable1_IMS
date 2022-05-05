@@ -53,17 +53,23 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order create() {
 		LOGGER.info("Please enter a customer ID");
-		Long id = utils.getLong();
-		LOGGER.info("Please enter the order ID");
-		Long order_id = utils.getLong();
-		LOGGER.info("Please add an item to the order");
-		Long item_id = utils.getLong();
-		
-		Order order = orderDAO.create(new Order(id, order_id, item_id));
+		Long id = utils.getLong();	
+		Order order = orderDAO.create(new Order(id));
 		LOGGER.info("Order created");
 		return order;
 	}
 
+	//can we add an item please :)
+	public Order addItem() {
+		LOGGER.info("Please enter the ID of the order you would like to add to");
+		Long order_id = utils.getLong();
+		LOGGER.info("Please enter the ID of the item you would like to add");
+		Long item_id = utils.getLong();
+		Order order = orderDAO.addItem(new Order(order_id, item_id));
+		return order;
+	}
+	
+	
 	/**
 	 * Updates an existing order by taking in user input
 	 */
