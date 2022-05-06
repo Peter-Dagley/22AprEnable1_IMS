@@ -11,14 +11,14 @@ public class Order {
 	private Long id;
 	private String surname;
 
-<span class="nc" id="L14">	public Order(Long order_id, Long id) {</span>
-<span class="nc" id="L15">		this.setOrder_id(order_id);</span>
-<span class="nc" id="L16">		this.setId(id);</span>
-<span class="nc" id="L17">	}</span>
+<span class="fc" id="L14">	public Order(Long order_id, Long id) {</span>
+<span class="fc" id="L15">		this.setOrder_id(order_id);</span>
+<span class="fc" id="L16">		this.setId(id);</span>
+<span class="fc" id="L17">	}</span>
 
-<span class="nc" id="L19">	public Order(Long id) {</span>
-<span class="nc" id="L20">		this.setId(id);</span>
-<span class="nc" id="L21">	}</span>
+<span class="fc" id="L19">	public Order(Long id) {</span>
+<span class="fc" id="L20">		this.setId(id);</span>
+<span class="fc" id="L21">	}</span>
 
 <span class="nc" id="L23">	public Order(Long order_id, Long item_id, String item_name, double price, Long id, String surname) {</span>
 <span class="nc" id="L24">		this.setOrder_id(order_id);</span>
@@ -40,8 +40,8 @@ public class Order {
 	}
 
 	public void setOrder_id(Long order_id) {
-<span class="nc" id="L43">		this.order_id = order_id;</span>
-<span class="nc" id="L44">	}</span>
+<span class="fc" id="L43">		this.order_id = order_id;</span>
+<span class="fc" id="L44">	}</span>
 
 	public Long getItem_id() {
 <span class="nc" id="L47">		return item_id;</span>
@@ -72,8 +72,8 @@ public class Order {
 	}
 
 	public void setId(Long id) {
-<span class="nc" id="L75">		this.id = id;</span>
-<span class="nc" id="L76">	}</span>
+<span class="fc" id="L75">		this.id = id;</span>
+<span class="fc" id="L76">	}</span>
 
 	public String getSurname() {
 <span class="nc" id="L79">		return surname;</span>
@@ -90,22 +90,22 @@ public class Order {
 
 	@Override
 	public boolean equals(Object obj) {
-<span class="nc bnc" id="L93" title="All 2 branches missed.">		if (this == obj)</span>
-<span class="nc" id="L94">			return true;</span>
-<span class="nc bnc" id="L95" title="All 2 branches missed.">		if (obj == null)</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L94">			return true;</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">		if (obj == null)</span>
 <span class="nc" id="L96">			return false;</span>
-<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if (getClass() != obj.getClass())</span>
 <span class="nc" id="L98">			return false;</span>
-<span class="nc" id="L99">		Order other = (Order) obj;</span>
-<span class="nc bnc" id="L100" title="All 4 branches missed.">		return Objects.equals(id, other.id) &amp;&amp; Objects.equals(item_id, other.item_id)</span>
-<span class="nc bnc" id="L101" title="All 4 branches missed.">				&amp;&amp; Objects.equals(item_name, other.item_name) &amp;&amp; Objects.equals(order_id, other.order_id)</span>
-<span class="nc bnc" id="L102" title="All 2 branches missed.">				&amp;&amp; Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)</span>
-<span class="nc bnc" id="L103" title="All 2 branches missed.">				&amp;&amp; Objects.equals(surname, other.surname);</span>
+<span class="fc" id="L99">		Order other = (Order) obj;</span>
+<span class="pc bpc" id="L100" title="2 of 4 branches missed.">		return Objects.equals(id, other.id) &amp;&amp; Objects.equals(item_id, other.item_id)</span>
+<span class="pc bpc" id="L101" title="2 of 4 branches missed.">				&amp;&amp; Objects.equals(item_name, other.item_name) &amp;&amp; Objects.equals(order_id, other.order_id)</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">				&amp;&amp; Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">				&amp;&amp; Objects.equals(surname, other.surname);</span>
 	}
 
 	@Override
 	public String toString() {
-<span class="nc" id="L108">		return &quot;Order [order_id=&quot; + order_id + &quot;, item_id=&quot; + item_id + &quot;, item_name=&quot; + item_name + &quot;, price=&quot; + price</span>
+<span class="fc" id="L108">		return &quot;Order [order_id=&quot; + order_id + &quot;, item_id=&quot; + item_id + &quot;, item_name=&quot; + item_name + &quot;, price=&quot; + price</span>
 				+ &quot;, id=&quot; + id + &quot;, surname=&quot; + surname + &quot;]&quot;;
 	}
 	

@@ -85,28 +85,30 @@ public class IMS {
 <span class="nc" id="L85">	}</span>
 
 	public void doAction(CrudController&lt;?&gt; crudController, Action action) {
-<span class="nc bnc" id="L88" title="All 7 branches missed.">		switch (action) {</span>
+<span class="nc bnc" id="L88" title="All 8 branches missed.">		switch (action) {</span>
 		case CREATE:
 <span class="nc" id="L90">			crudController.create();</span>
 <span class="nc" id="L91">			break;</span>
+		case ADDITEM:
+<span class="nc" id="L93">			orders.addItem();</span>
 		case READALL:
-<span class="nc" id="L93">			crudController.readAll();</span>
-<span class="nc" id="L94">			break;</span>
+<span class="nc" id="L95">			crudController.readAll();</span>
+<span class="nc" id="L96">			break;</span>
 		case READ:
-<span class="nc" id="L96">			crudController.read();</span>
-<span class="nc" id="L97">			break;</span>
+<span class="nc" id="L98">			crudController.read();</span>
+<span class="nc" id="L99">			break;</span>
 		case UPDATE:
-<span class="nc" id="L99">			crudController.update();</span>
-<span class="nc" id="L100">			break;</span>
+<span class="nc" id="L101">			crudController.update();</span>
+<span class="nc" id="L102">			break;</span>
 		case DELETE:
-<span class="nc" id="L102">			crudController.delete();</span>
-<span class="nc" id="L103">			break;</span>
-		case RETURN:
+<span class="nc" id="L104">			crudController.delete();</span>
 <span class="nc" id="L105">			break;</span>
+		case RETURN:
+<span class="nc" id="L107">			break;</span>
 		default:
 			break;
 		}
-<span class="nc" id="L109">	}</span>
+<span class="nc" id="L111">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
