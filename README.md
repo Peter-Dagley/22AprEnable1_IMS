@@ -20,6 +20,8 @@ Git Bash is needed to download this repository
 
 To download Git Bash for your system, follow this link: https://git-scm.com/downloads
 
+To download the database software MySQL, follow this link: https://www.mysql.com/downloads/
+
 For development and testing purposes, please install Eclipse for Java developers by following this link: https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers
 
 ### Installing
