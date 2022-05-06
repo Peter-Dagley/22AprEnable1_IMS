@@ -2,6 +2,9 @@ package com.qa.ims.persistence.domain;
 
 public class Customer {
 
+	// notes
+	//
+	
 	private Long id;
 	private String firstName;
 	private String surname;
