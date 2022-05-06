@@ -114,7 +114,11 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public Order read(Long order_id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders WHERE order_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT customer_orders.*, orders.order_id, items.item_name, items.price, customers.id AS customer_id, customers.surname FROM customer_orders\r\n"
+						+ "JOIN orders ON customer_orders.order_id=orders.order_id\r\n"
+						+ "JOIN items ON customer_orders.order_id=items.id\r\n"
+						+ "JOIN customers ON orders.customer_id=customers.id\r\n"
+						+ "WHERE orders.order_id = ?");) {
 			statement.setLong(1, order_id);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
