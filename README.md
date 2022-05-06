@@ -66,6 +66,10 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 *For help in [Choosing a license](https://choosealicense.com/)*
 
+## Jira Board
+
+https://peterdagley.atlassian.net/jira/software/projects/IMSP/boards/2
+
 ## Acknowledgments
 
 * Thanks to Richard Mansworth and Cameron Guthrie for answering my endless questions
